@@ -43,23 +43,23 @@ class ApiService {
   // Get all categories with name and image
   static Future<List<Map<String, String>>> getCategories() async {
     try {
-      print('🔍 Fetching categories from API...');
+      // print('🔍 Fetching categories from API...');
       final response = await http.get(
         Uri.parse('$baseUrl/products/categories'),
       );
 
-      print('📡 API Response Status: ${response.statusCode}');
-      print('📄 API Response Body: ${response.body}');
+      // print('📡 API Response Status: ${response.statusCode}');
+      // print('📄 API Response Body: ${response.body}');
 
       if (response.statusCode == 200) {
         final List<dynamic> categoriesJson = json.decode(response.body);
-        print('📋 Raw Categories JSON: $categoriesJson');
+        // print('📋 Raw Categories JSON: $categoriesJson');
 
         // Extract category names and images properly
         final List<Map<String, String>> categories =
             categoriesJson.map<Map<String, String>>((category) {
               if (category is String) {
-                print('✅ Category (String): $category');
+                // print('✅ Category (String): $category');
                 return {
                   'name': category,
                   'image': _getCategoryImage(
@@ -73,10 +73,10 @@ class ApiService {
                     category['img'] ??
                     category['image'] ??
                     _getCategoryImage(name);
-                print('✅ Category (Map): $name with image: $image');
+                // print('✅ Category (Map): $name with image: $image');
                 return {'name': name, 'image': image};
               } else {
-                print('✅ Category (Other): ${category.toString()}');
+                // print('✅ Category (Other): ${category.toString()}');
                 return {
                   'name': category.toString(),
                   'image': _getCategoryImage(category.toString()),
@@ -84,14 +84,14 @@ class ApiService {
               }
             }).toList();
 
-        print('🎯 Final Categories List: $categories');
+        // print('🎯 Final Categories List: $categories');
         return categories;
       } else {
-        print('❌ API Error: ${response.statusCode} - ${response.body}');
+        // print('❌ API Error: ${response.statusCode} - ${response.body}');
         throw Exception('Failed to load categories: ${response.statusCode}');
       }
     } catch (e) {
-      print('💥 Exception in getCategories: $e');
+      // print('💥 Exception in getCategories: $e');
       throw Exception('Error: $e');
     }
   }
