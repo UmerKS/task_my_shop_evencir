@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:task_my_shop_evencir/helper/app_colors.dart';
 
-
-
 class AppTextStyle {
-  static TextStyle style1 = GoogleFonts.montserrat(
+  static TextStyle style1 = GoogleFonts.playfairDisplay(
     textStyle: const TextStyle(
       fontWeight: FontWeight.w600,
       color: AppColors.black,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:task_my_shop_evencir/helper/app_AppTextStyle.dart';
+import 'package:task_my_shop_evencir/helper/app_text_style.dart';
 import 'package:task_my_shop_evencir/helper/app_colors.dart';
 import 'package:task_my_shop_evencir/widgets/search_bar_widget.dart';
 import '../models/product.dart';
